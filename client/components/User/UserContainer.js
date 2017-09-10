@@ -15,7 +15,7 @@ const UserContainer = (props) => {
 const mapState = function (state) {
   return {
     currentUser: state.currentUser,
-    gifs: state.gifs
+    searches: state.searches
   }
 }
 const mapDispatch = null

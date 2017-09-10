@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {logout} from '../../store'
-import SidebarStyle from './Sidebar'
+import SidebarStyle from './SidebarStyle'
 import SearchList from '../Search/SearchList'
 
 /* -----------------    COMPONENT     ------------------ */
@@ -19,7 +19,7 @@ class SidebarContainer extends Component {
     return (
       <SidebarStyle>
         <div className='sidebar-header'>
-          <h1>Soil</h1>
+          <h1>GIF SEARCH</h1>
         </div>
         {
           isLoggedIn ? this.renderLoggedIn() : this.renderLoggedOut()

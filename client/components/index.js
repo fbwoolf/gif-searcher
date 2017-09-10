@@ -5,4 +5,4 @@
  */
 export {default as Main} from './Main'
 export {default as UserContainer} from './User/UserContainer'
-export {Login, Signup} from './Forms/AuthContainer'
+export {Login, Signup} from './Auth/AuthContainer'
