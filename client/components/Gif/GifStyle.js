@@ -3,9 +3,22 @@ import styled from 'styled-components'
 
 const GifStyle = styled.section`
   {
-    display: 'block',
-    margin: '0 0 0.25rem',
-    width: '100%',
+    background: ${props => props.theme.white};
+    color: ${props => props.theme.darkgrey};
+
+    .image-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .gif-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      background: ${props => props.theme.white};
+      border: 1px solid ${props => props.theme.medgrey};
+    }
   }
 `
 export default GifStyle

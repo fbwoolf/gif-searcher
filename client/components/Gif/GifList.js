@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { connect } from 'react-redux'
 import GifItem from './GifItem'
@@ -7,11 +6,11 @@ const GifList = (props) => {
   const { gifs } = props
 
   return (
-    <ul>
+    <div className='gallery center'>
       {
         gifs.map(gif => <GifItem key={gif.id} gif={gif} />)
       }
-    </ul>
+    </div>
   )
 }
 

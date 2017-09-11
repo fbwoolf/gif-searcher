@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Row } from '../Grid/Grid'
 import NewSearchEntry from '../Search/NewSearchEntry'
 import UserStyle from './UserStyle'
 import GifList from '../Gif/GifList'
@@ -11,7 +12,9 @@ const UserContainer = (props) => {
     <div>
       <NewSearchEntry />
       <UserStyle>
-        <GifList />
+        <Row>
+          <GifList />
+        </Row>
       </UserStyle>
     </div>
   )
