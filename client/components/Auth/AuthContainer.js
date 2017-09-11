@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../../store'
 import AuthStyle from './AuthStyle'
-import Button from '../Navigation/Button'
+import AuthButton from '../Navigation/AuthButton'
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -29,7 +29,7 @@ const AuthContainer = (props) => {
           <input name='password' type='password' placeholder='Password' />
         </div>
         <div>
-          <Button type='submit'>{displayName}</Button>
+          <AuthButton type='submit'>{displayName}</AuthButton>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

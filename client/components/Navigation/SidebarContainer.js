@@ -19,7 +19,7 @@ class SidebarContainer extends Component {
     return (
       <SidebarStyle>
         <div className='sidebar-header'>
-          <h1>GIF SEARCH</h1>
+          <h1>GIF SEARCHER</h1>
         </div>
         {
           isLoggedIn ? this.renderLoggedIn() : this.renderLoggedOut()

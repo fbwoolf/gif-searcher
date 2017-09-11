@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import SearchItem from './SearchItem'
+import { NavLink } from 'react-router-dom'
 
 const SearchList = (props) => {
   const { currentUser, searches } = props
@@ -9,9 +10,11 @@ const SearchList = (props) => {
     <ul>
       {
         searches
-          .filter(search => search.userId === currentUser.id)
           .map(search => <SearchItem key={search.id} search={search} />)
       }
+      <li>
+        <NavLink to='/new-search'>Add New Search</NavLink>
+      </li>
     </ul>
   )
 }
@@ -26,3 +29,5 @@ const mapState = (state) => {
 const mapDispatch = null
 
 export default connect(mapState, mapDispatch)(SearchList)
+
+ // .filter(search => search.userId === currentUser.id)

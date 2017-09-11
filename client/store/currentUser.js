@@ -1,26 +1,35 @@
 import axios from 'axios'
 import history from '../history'
 
-/**
- * ACTION TYPES
- */
+/* -----------------    ACTION TYPES ------------------ */
+
 const LOGIN_USER = 'LOGIN_USER'
 const LOGOUT_USER = 'LOGOUT_USER'
 
-/**
- * INITIAL STATE
- */
+/* -----------------    INITIAL STATE ------------------ */
+
 const defaultUser = {}
 
-/**
- * ACTION CREATORS
- */
+/* ------------   ACTION CREATORS     ------------------ */
+
 const getUser = user => ({type: LOGIN_USER, user})
 const removeUser = () => ({type: LOGOUT_USER})
 
-/**
- * THUNK CREATORS
- */
+/* ------------       REDUCER     ------------------ */
+
+export default function (state = defaultUser, action) {
+  switch (action.type) {
+    case LOGIN_USER:
+      return action.user
+    case LOGOUT_USER:
+      return defaultUser
+    default:
+      return state
+  }
+}
+
+/* ------------   THUNK CREATORS     ------------------ */
+
 export const me = () =>
   dispatch =>
     axios.get('/auth/me')
@@ -46,17 +55,3 @@ export const logout = () =>
         history.push('/login')
       })
       .catch(err => console.log(err))
-
-/**
- * REDUCER
- */
-export default function (state = defaultUser, action) {
-  switch (action.type) {
-    case LOGIN_USER:
-      return action.user
-    case LOGOUT_USER:
-      return defaultUser
-    default:
-      return state
-  }
-}

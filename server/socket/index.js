@@ -1,9 +1,11 @@
-module.exports = (io) => {
-  io.on('connection', (socket) => {
-    console.log(`A socket connection to the server has been made: ${socket.id}`)
+const Search = require('../db/models/search')
 
-    socket.on('disconnect', () => {
-      console.log(`Connection ${socket.id} has left the building`)
+module.exports = io => {
+  io.on('connection', socket => {
+    console.log(socket.id, ' has made a persistent connection to the server!')
+
+    socket.on('new-search', search => {
+      socket.broadcast.emit('new-search', search)
     })
   })
 }

@@ -11,7 +11,7 @@ const SearchItem = (props) => {
     <div>
       <li>
         <NavLink activeClassName='active' to={`/searches/${search.id}`}>
-          { search.name }
+          { search.word }
         </NavLink>
       </li>
     </div>

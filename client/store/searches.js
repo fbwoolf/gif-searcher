@@ -1,18 +1,15 @@
 import axios from 'axios'
+import socket from '../socket'
 
 /* -----------------    ACTION TYPES ------------------ */
 
 const INITIALIZE = 'INITIALIZE_SEARCHES'
-const CREATE = 'CREATE_SEARCH'
-const REMOVE = 'REMOVE_SEARCH'
-const UPDATE = 'UPDATE_SEARCH'
+const GET = 'GET_SEARCH'
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 const init = searches => ({ type: INITIALIZE, searches })
-const create = search => ({ type: CREATE, search })
-const remove = id => ({ type: REMOVE, id })
-const update = search => ({ type: UPDATE, search })
+export const getSearch = search => ({ type: GET, search })
 
 /* ------------       REDUCER     ------------------ */
 
@@ -21,16 +18,8 @@ export default function reducer (searches = [], action) {
     case INITIALIZE:
       return action.searches
 
-    case CREATE:
-      return [action.search, ...searches]
-
-    case REMOVE:
-      return searches.filter(search => search.id !== action.id)
-
-    case UPDATE:
-      return searches.map(search => (
-        action.search.id === search.id ? action.search : search
-      ))
+    case GET:
+      return [...searches, action.search]
 
     default:
       return searches
@@ -44,27 +33,13 @@ export const fetchSearches = () => dispatch => {
     .then(res => dispatch(init(res.data)))
 }
 
-export const fetchSearch = id => dispatch => {
-  axios.get(`/api/searches/${id}`)
-    .then(res => dispatch(update(res.data)))
-    .catch(err => console.error('Fetching search unsuccesful', err))
-}
-
-// optimistic
-export const removeSearch = id => dispatch => {
-  dispatch(remove(id))
-  axios.delete(`/api/searches/${id}`)
-    .catch(err => console.error(`Removing search: ${id} unsuccesful`, err))
-}
-
-export const addSearch = search => dispatch => {
+export const addSearch = (search, history) => dispatch => {
   axios.post('/api/searches', search)
-    .then(res => dispatch(create(res.data)))
+    .then(res => res.data)
+    .then(newSearch => {
+      dispatch(getSearch(newSearch))
+      socket.emit('new-search', newSearch)
+      history.push(`/searches/${newSearch.id}`)
+    })
     .catch(err => console.error(`Creating search: ${search} unsuccesful`, err))
-}
-
-export const updateSearch = (id, search) => dispatch => {
-  axios.put(`/api/searches/${id}`, search)
-    .then(res => dispatch(update(res.data)))
-    .catch(err => console.error(`Updating search: ${search} unsuccesful`, err))
 }

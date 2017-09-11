@@ -5,8 +5,6 @@ import {Provider} from 'react-redux'
 import store from './store'
 import Routes from './routes'
 import {ThemeProvider} from 'styled-components'
-
-// establishes socket connection
 import './socket'
 
 export const theme = {

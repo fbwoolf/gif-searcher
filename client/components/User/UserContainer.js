@@ -6,7 +6,9 @@ import UserStyle from './UserStyle'
 
 const UserContainer = (props) => {
   return (
-    <UserStyle />
+    <div>
+      <UserStyle />
+    </div>
   )
 }
 

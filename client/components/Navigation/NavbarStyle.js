@@ -7,7 +7,7 @@ const NavbarStyle = styled.section`
     height: 60px;
     width: 100%;
     background-color: ${props => props.theme.green};
-    z-index: 1;
+    z-index: 2;
     border-bottom: 1px solid ${props => props.theme.green};
     display: flex;
     align-items: center;

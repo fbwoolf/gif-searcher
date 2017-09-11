@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const SidebarStyle = styled.section`
   {
+    position: fixed;
     background: ${props => props.theme.darkgrey};
     color: ${props => props.theme.white};
     width: 300px;
@@ -37,7 +38,7 @@ const SidebarStyle = styled.section`
 
       li {
         a {
-          color: ${props => props.theme.white};
+          color: ${props => props.theme.lightgrey};
           text-decoration: none;
           padding-left: 16px;
           padding-top: 10px;

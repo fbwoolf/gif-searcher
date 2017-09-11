@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 const AuthStyle = styled.section`
   {
+    position: relative;
+    left: 300px;
     background: ${props => props.theme.lightgrey};
     color: ${props => props.theme.white};
     width: 500px;
