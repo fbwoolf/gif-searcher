@@ -11,11 +11,11 @@ export function writeSearchWord (searchWord) {
 
 /* ------------       REDUCER     ------------------ */
 
-export default function reducer (state = '', action) {
+export default function reducer (search = '', action) {
   switch (action.type) {
     case WRITE_SEARCH_WORD:
       return action.searchWord
     default:
-      return state
+      return search
   }
 }

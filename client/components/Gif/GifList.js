@@ -9,20 +9,13 @@ const GifList = (props) => {
   return (
     <ul>
       {
-        gifs
-          .map(gif => <GifItem key={gif.id} gif={gif} />)
+        gifs.map(gif => <GifItem key={gif.id} gif={gif} />)
       }
     </ul>
   )
 }
 
-const mapState = (state) => {
-  return {
-    currentUser: state.currentUser,
-    gifs: state.gifs
-  }
-}
-
+const mapState = ({ currentUser, gifs }) => ({ currentUser, gifs })
 const mapDispatch = null
 
 export default connect(mapState, mapDispatch)(GifList)

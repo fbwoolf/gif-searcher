@@ -7,13 +7,13 @@ import SearchButton from '../Navigation/SearchButton'
 /* -----------------    COMPONENT     ------------------ */
 
 const NewSearchEntry = (props) => {
-  const { newSearchEntry, handleSubmit, handleChange } = props
+  const { search, handleSubmit, handleChange } = props
 
   return (
     <NewSearchStyle>
       <form onSubmit={handleSubmit}>
         <input
-          value={newSearchEntry}
+          value={search}
           onChange={handleChange}
           type='text'
           name='searchWord'
@@ -27,11 +27,7 @@ const NewSearchEntry = (props) => {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = (state) => {
-  return {
-    newSearchEntry: state.newSearchEntry
-  }
-}
+const mapState = ({ currentUser, search }) => ({ currentUser, search })
 
 const mapDispatch = (dispatch, ownProps) => {
   return {

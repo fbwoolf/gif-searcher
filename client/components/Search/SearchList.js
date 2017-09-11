@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import SearchItem from './SearchItem'
-import { NavLink } from 'react-router-dom'
 
 const SearchList = (props) => {
   const { currentUser, searches } = props
@@ -12,9 +11,6 @@ const SearchList = (props) => {
         searches
           .map(search => <SearchItem key={search.id} search={search} />)
       }
-      <li>
-        <NavLink to='/new-search'>Add New Search</NavLink>
-      </li>
     </ul>
   )
 }

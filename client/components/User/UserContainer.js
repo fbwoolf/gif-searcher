@@ -1,13 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import NewSearchEntry from '../Search/NewSearchEntry'
 import UserStyle from './UserStyle'
+import GifList from '../Gif/GifList'
 
 /* -----------------    COMPONENT     ------------------ */
 
 const UserContainer = (props) => {
   return (
     <div>
-      <UserStyle />
+      <NewSearchEntry />
+      <UserStyle>
+        <GifList />
+      </UserStyle>
     </div>
   )
 }
@@ -16,8 +21,7 @@ const UserContainer = (props) => {
 
 const mapState = function (state) {
   return {
-    currentUser: state.currentUser,
-    searches: state.searches
+    currentUser: state.currentUser
   }
 }
 const mapDispatch = null

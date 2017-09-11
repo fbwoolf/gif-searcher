@@ -1,20 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import GifStyle from './GifStyle'
 
 /* -----------------    COMPONENT     ------------------ */
 
 const GifItem = (props) => {
   const { gif } = props
 
+  if (!gif) {
+    return null
+  }
+
   return (
-    <div>
+    <GifStyle>
       <li>
-        <NavLink activeClassName='active' to={`/gifs/${gif.id}`}>
-          { gif.name }
-        </NavLink>
+        <img src={gif.images.fixed_width_downsampled.url} />
       </li>
-    </div>
+    </GifStyle>
   )
 }
 

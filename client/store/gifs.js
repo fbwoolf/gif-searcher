@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://api.giphy.com/v1/gifs/search?q='
+const API_URL = 'http://api.giphy.com/v1/gifs/'
 const API_KEY = '3ebac09823d3492d900e52374f19368b'
 
 /* -----------------    ACTION TYPES ------------------ */
@@ -24,7 +24,8 @@ export default function reducer (gifs = [], action) {
 
 /* ------------   THUNK CREATORS     ------------------ */
 
-export const fetchGifs = (word) => dispatch => {
-  axios.get('${API_URL}${word.replace(/\s/g, ' + ')}${API_KEY}')
-    .then(res => dispatch(init(res.data)))
+export const fetchGifs = () => dispatch => {
+  axios.get(`${API_URL}trending?api_key=${API_KEY}`)
+    .then(res => dispatch(init(res.data.data)))
+    .catch(err => console.error('Fetching data unsuccesful', err))
 }
