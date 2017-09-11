@@ -27,7 +27,7 @@ const NewSearchEntry = (props) => {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = ({ currentUser, search }) => ({ currentUser, search })
+const mapState = ({ search }) => ({ search })
 
 const mapDispatch = (dispatch, ownProps) => {
   return {
@@ -36,8 +36,9 @@ const mapDispatch = (dispatch, ownProps) => {
     },
     handleSubmit (evt) {
       evt.preventDefault()
+      const { userId } = ownProps
       const word = evt.target.searchWord.value
-      dispatch(addSearch({ word }, ownProps.history))
+      dispatch(addSearch({ word, userId }, ownProps.history))
       dispatch(writeSearchWord(''))
     }
   }

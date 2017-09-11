@@ -4,7 +4,7 @@ import {Router} from 'react-router'
 import {Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {me, fetchUsers, fetchSearches, fetchGifs} from './store'
+import {me, fetchUsers, fetchSearches, fetchTrendingGifs} from './store'
 import {Main, Login, Signup, UserContainer, SearchContainer} from './components'
 
 /**
@@ -59,7 +59,7 @@ const mapDispatch = (dispatch) => {
       dispatch(me())
       dispatch(fetchUsers())
       dispatch(fetchSearches())
-      dispatch(fetchGifs())
+      dispatch(fetchTrendingGifs())
     }
   }
 }

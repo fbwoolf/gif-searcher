@@ -33,7 +33,7 @@ export const fetchSearches = () => dispatch => {
     .then(res => dispatch(init(res.data)))
 }
 
-export const addSearch = (userId, search, history) => dispatch => {
+export const addSearch = (search, history) => dispatch => {
   axios.post('/api/searches', search)
     .then(res => res.data)
     .then(newSearch => {
