@@ -35,7 +35,8 @@ export const fetchTrendingGifs = () => dispatch => {
 }
 
 export const requestGifs = (word) => dispatch => {
-  axios.get(`${API_URL}${word.replace(/\s/g, '+')}${API_KEY}`)
+  const searchWord = word.trim().replace(/ /g, '+')
+  axios.get(`${API_URL}search?q=${searchWord}&api_key=${API_KEY}`)
     .then(res => dispatch(request(res.data.data)))
     .catch(err => console.error('Fetching data unsuccesful', err))
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NewSearchStyle from './NewSearchStyle'
-import { writeSearchWord, addSearch } from '../../store'
+import { requestGifs, writeSearchWord, addSearch } from '../../store'
 import SearchButton from '../Navigation/SearchButton'
 
 /* -----------------    COMPONENT     ------------------ */
@@ -32,6 +32,7 @@ const mapState = ({ search }) => ({ search })
 const mapDispatch = (dispatch, ownProps) => {
   return {
     handleChange (evt) {
+      dispatch(requestGifs(evt.target.value))
       dispatch(writeSearchWord(evt.target.value))
     },
     handleSubmit (evt) {
