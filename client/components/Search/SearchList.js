@@ -9,21 +9,14 @@ const SearchList = (props) => {
     <ul>
       {
         searches
+          .filter(search => search.userId === currentUser.id)
           .map(search => <SearchItem key={search.id} search={search} />)
       }
     </ul>
   )
 }
 
-const mapState = (state) => {
-  return {
-    currentUser: state.currentUser,
-    searches: state.searches
-  }
-}
-
+const mapState = ({ currentUser, searches }) => ({ currentUser, searches })
 const mapDispatch = null
 
 export default connect(mapState, mapDispatch)(SearchList)
-
- // .filter(search => search.userId === currentUser.id)
