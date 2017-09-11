@@ -13,11 +13,11 @@ const GifItem = (props) => {
   }
 
   return (
-    <Column xs='12' md='4' lg='2'>
+    <Column xs='12' md='6' lg='3'>
       <div className='col-space'>
         <GifStyle>
           <div className='image-container'>
-            <img src={gif.images.fixed_width_downsampled.url} className='gif-image' />
+            <img src={gif.images.fixed_height_downsampled.url} className='gif-image' />
           </div>
         </GifStyle>
       </div>

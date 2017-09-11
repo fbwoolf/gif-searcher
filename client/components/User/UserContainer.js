@@ -13,11 +13,11 @@ const UserContainer = (props) => {
   return (
     <div>
       <NewSearchEntry userId={currentUser.id} />
-      <UserStyle>
-        <Row>
-          <GifList />
-        </Row>
-      </UserStyle>
+
+      <Row>
+        <GifList />
+      </Row>
+
     </div>
   )
 }
