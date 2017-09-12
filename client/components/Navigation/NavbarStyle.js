@@ -4,6 +4,8 @@ import styled from 'styled-components'
 const NavbarStyle = styled.section`
   {
     position: fixed;
+    top: 0px;
+    left: 0px;
     height: 60px;
     width: 100%;
     background-color: ${props => props.theme.green};

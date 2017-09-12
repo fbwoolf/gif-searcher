@@ -27,11 +27,11 @@ const NewSearchStyle = styled.section`
       font-size: 1rem;
       color: ${props => props.theme.white};
       background: ${props => props.theme.darkgrey};
-    }
 
-    input:focus {
-      outline: none;
-    }
+      &:hover, &:focus {
+        outline: none;
+      }
+    } 
   }
 `
 export default NewSearchStyle

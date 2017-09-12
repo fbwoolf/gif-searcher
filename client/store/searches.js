@@ -33,13 +33,12 @@ export const fetchSearches = () => dispatch => {
     .then(res => dispatch(init(res.data)))
 }
 
-export const addSearch = (search, history) => dispatch => {
+export const addSearch = (search) => dispatch => {
   axios.post('/api/searches', search)
     .then(res => res.data)
     .then(newSearch => {
       dispatch(getSearch(newSearch))
       socket.emit('new-search', newSearch)
-      history.push(`/searches/${newSearch.id}`)
     })
     .catch(err => console.error(`Creating search: ${search} unsuccesful`, err))
 }

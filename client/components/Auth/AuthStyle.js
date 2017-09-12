@@ -35,18 +35,17 @@ const AuthStyle = styled.section`
 
     input {
       width: 80%;
-      height: 20px;
       padding: 12px 20px;
       border: none;
       font-size: 1rem;
       color: ${props => props.theme.white};
       background: ${props => props.theme.lightgrey};
       border-bottom: 2px solid ${props => props.theme.white};
-    }
 
-    input:focus {
-      outline: none;
-      background: ${props => props.theme.darkgrey};
+      &:hover, &:focus {
+        outline: none;
+        background: ${props => props.theme.darkgrey};
+      }
     }
 
     a {

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 
 const SearchButton = styled.button`
-	position: relative;
+  position: relative;
   background: ${props => props.theme.green};
   color: ${props => props.theme.white};
   width: 50%;
@@ -12,5 +12,19 @@ const SearchButton = styled.button`
   font-size: 1rem;
   margin: 20px 30px;
   border: none;
+
+  &:hover {
+    background: ${props => props.theme.greenhover};
+    color: ${props => props.theme.darkgrey};  
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .active {
+    color: ${props => props.theme.white};
+    background: ${props => props.theme.green};
+  }   
 `
 export default SearchButton

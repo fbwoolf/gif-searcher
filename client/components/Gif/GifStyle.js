@@ -24,7 +24,7 @@ const GifStyle = styled.section`
       box-sizing: border-box;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
-      box-shadow: 2px 2px 4px 0 #ccc;
+      box-shadow: 1px 1px 2px 0 #ccc;
 
       img {
         width: 100%;

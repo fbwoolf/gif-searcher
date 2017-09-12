@@ -11,5 +11,19 @@ const AuthButton = styled.button`
   font-size: 1rem;
   margin: 20px 30px;
   border: none;
+
+  &:hover {
+    background: ${props => props.theme.greenhover};
+    color: ${props => props.theme.darkgrey};  
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .active {
+    color: ${props => props.theme.white};
+    background: ${props => props.theme.green};
+  } 
 `
 export default AuthButton

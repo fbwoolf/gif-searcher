@@ -7,13 +7,13 @@ import SearchButton from '../Navigation/SearchButton'
 /* -----------------    COMPONENT     ------------------ */
 
 const NewSearchEntry = (props) => {
-  const { search, handleSubmit, handleChange } = props
+  const { newSearchEntry, handleSubmit, handleChange } = props
 
   return (
     <NewSearchStyle>
       <form onSubmit={handleSubmit}>
         <input
-          value={search}
+          value={newSearchEntry}
           onChange={handleChange}
           type='text'
           name='searchWord'
@@ -27,7 +27,7 @@ const NewSearchEntry = (props) => {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = ({ search }) => ({ search })
+const mapState = ({ newSearchEntry }) => ({ newSearchEntry })
 
 const mapDispatch = (dispatch, ownProps) => {
   return {
@@ -39,8 +39,8 @@ const mapDispatch = (dispatch, ownProps) => {
       evt.preventDefault()
       const { userId } = ownProps
       const word = evt.target.searchWord.value
-      dispatch(addSearch({ word, userId }, ownProps.history))
-      dispatch(writeSearchWord(''))
+      dispatch(addSearch({ word, userId }))
+      dispatch(writeSearchWord('Search GIPHY, Again!'))
     }
   }
 }
