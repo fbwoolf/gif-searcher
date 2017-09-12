@@ -5,12 +5,14 @@ import socket from '../socket'
 
 const INITIALIZE = 'INITIALIZE_SEARCHES'
 const CREATE = 'CREATE_SEARCH'
+const REMOVE = 'REMOVE_SEARCH'
 const UPDATE = 'UPDATE_SEARCH'
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 const init = searches => ({ type: INITIALIZE, searches })
 export const createSearch = search => ({ type: CREATE, search })
+const remove = id => ({ type: REMOVE, id })
 const update = search => ({ type: UPDATE, search })
 
 /* ------------       REDUCER     ------------------ */
@@ -22,6 +24,9 @@ export default function reducer (searches = [], action) {
 
     case CREATE:
       return [...searches, action.search]
+
+    case REMOVE:
+      return searches.filter(search => search.id !== action.id)
 
     case UPDATE:
       return searches.map(search => (
@@ -44,6 +49,12 @@ export const fetchSearch = id => dispatch => {
   axios.get(`/api/searches/${id}`)
     .then(res => dispatch(update(res.data)))
     .catch(err => console.error('Fetching search unsuccesful', err))
+}
+
+export const removeSearch = id => dispatch => {
+  dispatch(remove(id))
+  axios.delete(`/api/searches/${id}`)
+    .catch(err => console.error(`Removing search: ${id} unsuccesful`, err))
 }
 
 export const addSearch = (search) => dispatch => {

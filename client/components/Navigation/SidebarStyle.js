@@ -38,11 +38,10 @@ const SidebarStyle = styled.section`
           color: ${props => props.theme.lightgrey};
           text-decoration: none;
           padding: 10px 16px;
-          display: list-item;
+          display: inline-block;
 
           &:hover, &:focus {
             color: ${props => props.theme.green};
-            background: ${props => props.theme.darkgreyhover};
             text-decoration: none;
           }
 
@@ -50,6 +49,10 @@ const SidebarStyle = styled.section`
             color: ${props => props.theme.green};
             background: ${props => props.theme.darkgreyhover};
           }
+        }
+
+        &:hover, &:focus {
+          background: ${props => props.theme.darkgreyhover};
         }
       }
     }

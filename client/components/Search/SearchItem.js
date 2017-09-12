@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { fetchSearchWordGifs } from '../../store'
+import { fetchSearchWordGifs, removeSearch } from '../../store'
+import RemoveSearchButton from './RemoveSearchButton'
 
 /* -----------------    COMPONENT     ------------------ */
 
 const SearchItem = (props) => {
-  const { search, handleClick } = props
+  const { search, handleClick, handleRemove } = props
 
   return (
     <div>
@@ -14,6 +15,9 @@ const SearchItem = (props) => {
         <NavLink activeClassName='active' to={'/home'} onClick={handleClick}>
           { search.word }
         </NavLink>
+        <RemoveSearchButton onClick={handleRemove}>
+          <i className='fa fa-times fa-pull-right' />
+        </RemoveSearchButton>
       </li>
     </div>
   )
@@ -28,6 +32,11 @@ const mapDispatch = (dispatch, ownProps) => {
       evt.stopPropagation()
       const word = ownProps.search.word
       dispatch(fetchSearchWordGifs(word))
+    },
+    handleRemove (evt) {
+      evt.stopPropagation()
+      const { search } = ownProps
+      dispatch(removeSearch(search.id))
     }
   }
 }
