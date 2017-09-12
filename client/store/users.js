@@ -30,7 +30,7 @@ export default function reducer (users = [], action) {
     case UPDATE:
       return users.map(user => (
         action.user.id === user.id ? action.user : user
-      ))
+    ))
 
     default:
       return users

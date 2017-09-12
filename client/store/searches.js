@@ -4,12 +4,14 @@ import socket from '../socket'
 /* -----------------    ACTION TYPES ------------------ */
 
 const INITIALIZE = 'INITIALIZE_SEARCHES'
-const GET = 'GET_SEARCH'
+const CREATE = 'CREATE_SEARCH'
+const UPDATE = 'UPDATE_SEARCH'
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 const init = searches => ({ type: INITIALIZE, searches })
-export const getSearch = search => ({ type: GET, search })
+export const createSearch = search => ({ type: CREATE, search })
+const update = search => ({ type: UPDATE, search })
 
 /* ------------       REDUCER     ------------------ */
 
@@ -18,8 +20,13 @@ export default function reducer (searches = [], action) {
     case INITIALIZE:
       return action.searches
 
-    case GET:
+    case CREATE:
       return [...searches, action.search]
+
+    case UPDATE:
+      return searches.map(search => (
+        action.search.id === search.id ? action.search : search
+    ))
 
     default:
       return searches
@@ -33,11 +40,17 @@ export const fetchSearches = () => dispatch => {
     .then(res => dispatch(init(res.data)))
 }
 
+export const fetchSearch = id => dispatch => {
+  axios.get(`/api/searches/${id}`)
+    .then(res => dispatch(update(res.data)))
+    .catch(err => console.error('Fetching search unsuccesful', err))
+}
+
 export const addSearch = (search) => dispatch => {
   axios.post('/api/searches', search)
     .then(res => res.data)
     .then(newSearch => {
-      dispatch(getSearch(newSearch))
+      dispatch(createSearch(newSearch))
       socket.emit('new-search', newSearch)
     })
     .catch(err => console.error(`Creating search: ${search} unsuccesful`, err))

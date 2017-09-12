@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import NewSearchStyle from './NewSearchStyle'
 import { requestGifs, writeSearchWord, addSearch } from '../../store'
-import SearchButton from '../Navigation/SearchButton'
+import SearchButton from './SearchButton'
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -40,7 +40,7 @@ const mapDispatch = (dispatch, ownProps) => {
       const { userId } = ownProps
       const word = evt.target.searchWord.value
       dispatch(addSearch({ word, userId }))
-      dispatch(writeSearchWord('Search GIPHY, Again!'))
+      dispatch(writeSearchWord(''))
     }
   }
 }

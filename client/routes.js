@@ -5,7 +5,7 @@ import {Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
 import {me, fetchUsers, fetchSearches, fetchTrendingGifs} from './store'
-import {Main, Login, Signup, UserContainer, SearchContainer} from './components'
+import {Main, Login, Signup, UserContainer } from './components'
 
 /**
  * COMPONENT
@@ -30,7 +30,6 @@ class Routes extends Component {
                 <Switch>
                   {/* Routes placed here are only available after logging in */}
                   <Route path='/home' component={UserContainer} />
-                  <Route path='/searches/:id' component={SearchContainer} />
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}
