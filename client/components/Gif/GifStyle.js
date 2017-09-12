@@ -3,6 +3,11 @@ import styled from 'styled-components'
 
 const GifStyle = styled.section`
   {
+    margin-top: 120px;
+    margin-left: 300px;
+    clear: both;
+    overflow: auto;
+    min-height: 600px;  
     background: ${props => props.theme.white};
     color: ${props => props.theme.darkgrey};
 
@@ -37,6 +42,11 @@ const GifStyle = styled.section`
           -webkit-column-count: 2;
           column-count: 1;
       }
+    }
+
+    @media only screen and (max-width: 768px) {
+      margin-top: 185px;
+      margin-left: 0;
     }
 
     @media only screen and (min-width: 768px) {

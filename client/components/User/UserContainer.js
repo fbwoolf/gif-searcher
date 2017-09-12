@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NewSearchEntry from '../Search/NewSearchEntry'
+import SidebarContainer from '../Navigation/SidebarContainer'
+import UserStyle from './UserStyle'
 import GifList from '../Gif/GifList'
 
 /* -----------------    COMPONENT     ------------------ */
@@ -11,7 +13,10 @@ const UserContainer = (props) => {
   return (
     <div>
       <NewSearchEntry userId={currentUser.id} />
-      <GifList />
+      <SidebarContainer />
+      <UserStyle>
+        <GifList />
+      </UserStyle>
     </div>
   )
 }

@@ -3,21 +3,13 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import NavbarContainer from './Navigation/NavbarContainer'
-import SidebarContainer from './Navigation/SidebarContainer'
 
-/**
- * COMPONENT
- *  The Main component is our 'picture frame' - it displays the navbar and anything
- *  else common to our entire app. The 'picture' inside the frame is the space
- *  rendered out by the component's `children`.
- */
 const Main = (props) => {
   const {children} = props
 
   return (
     <div id='main'>
       <NavbarContainer />
-      <SidebarContainer />
       { children }
     </div>
   )

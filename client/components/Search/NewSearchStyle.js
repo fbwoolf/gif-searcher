@@ -5,7 +5,7 @@ const NewSearchStyle = styled.section`
   {
     position: fixed;
     top: 60px;
-    left: 300px;
+    left: 0px;
     height: 60px;
     width: 100%;
     background-color: ${props => props.theme.lightgrey};
@@ -14,14 +14,16 @@ const NewSearchStyle = styled.section`
     align-items: center;
 
     form {
-      width: 50%;
+      width: 100%;
       display: flex;
       align-items: center;
-      margin-left: 20px;
+      display: inline-block;
+      text-align: center;
     }
 
     input {
-      width: 80%;
+      width: 25rem;
+      margin-right: 5px;
       padding: 12px 20px;
       border: none;
       font-size: 1rem;
@@ -30,6 +32,15 @@ const NewSearchStyle = styled.section`
 
       &:hover, &:focus {
         outline: none;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      height: 125px;
+
+      input {
+        width: 90%;
+        margin-bottom: 5px;
       }
     } 
   }

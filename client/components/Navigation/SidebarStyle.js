@@ -4,21 +4,18 @@ import styled from 'styled-components'
 const SidebarStyle = styled.section`
   {
     position: fixed;
-    background: ${props => props.theme.darkgrey};
-    color: ${props => props.theme.white};
+    top: 120px;
+    left: 0px;
     width: 300px;
+    margin-right: -300px;
+    float: left;
+    overflow: hidden;
     height: 100%;
+    background: ${props => props.theme.darkgrey};
+    color: ${props => props.theme.green};
     z-index: 2;
 
-    .sidebar-header {
-      margin: 0;
-      height: 60px;
-      color: ${props => props.theme.green};
-      border-bottom: 1px solid ${props => props.theme.medgrey};
-    }
-
-    h1 {
-      font-weight: normal;
+    h2 {
       display: flex;
       align-items: center;
       padding: 16px;
@@ -40,10 +37,8 @@ const SidebarStyle = styled.section`
         a {
           color: ${props => props.theme.lightgrey};
           text-decoration: none;
-          padding-left: 16px;
-          padding-top: 10px;
+          padding: 10px 16px;
           display: list-item;
-          height: 30px;
 
           &:hover, &:focus {
             color: ${props => props.theme.green};
@@ -57,6 +52,10 @@ const SidebarStyle = styled.section`
           }
         }
       }
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
     }
   }
 `

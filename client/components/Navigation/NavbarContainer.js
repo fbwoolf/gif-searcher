@@ -18,6 +18,9 @@ class NavbarContainer extends Component {
 
     return (
       <NavbarStyle>
+        <div className='nav-header'>
+          <h1>GIF SEARCHER</h1>
+        </div>
         {
           isLoggedIn ? this.renderLoggedIn() : this.renderLoggedOut()
         }
@@ -28,8 +31,6 @@ class NavbarContainer extends Component {
   renderLoggedIn () {
     return (
       <div>
-        <h1>{this.props.currentUser.username}</h1>
-
         <ul>
           <li>
             <NavLink to='/home' activeClassName='active'>Home</NavLink>

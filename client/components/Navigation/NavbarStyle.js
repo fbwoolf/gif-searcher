@@ -14,6 +14,11 @@ const NavbarStyle = styled.section`
     display: flex;
     align-items: center;
 
+    .nav-header {
+      margin-left: 16px;
+      color: ${props => props.theme.white};
+    }
+
     ul {
       position: absolute;
       margin: 0;
