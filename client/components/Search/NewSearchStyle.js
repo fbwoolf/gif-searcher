@@ -22,7 +22,6 @@ const NewSearchStyle = styled.section`
 
     input {
       width: 80%;
-      height: 20px;
       padding: 12px 20px;
       border: none;
       font-size: 1rem;

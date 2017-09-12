@@ -24,8 +24,8 @@ export const Row = styled.div`
 
 export const Column = styled.div`
   float: left;
-  padding-left: 0.9375em;
-  padding-right: 0.9375em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   ${({ xs }) => (xs ? getWidthString(xs) : 'width: 100%')}
 
   @media only screen and (min-width: 768px) {
