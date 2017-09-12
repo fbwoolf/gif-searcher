@@ -9,5 +9,9 @@ const RemoveSearchButton = styled.button`
   padding-top: 10px;
   padding-right: 16px;
   font-size: 16px;
+
+  &:focus {
+    outline: none;
+  }
 `
 export default RemoveSearchButton
