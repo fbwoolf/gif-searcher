@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Row } from '../Grid/Grid'
 import NewSearchEntry from '../Search/NewSearchEntry'
 import UserStyle from './UserStyle'
 import GifList from '../Gif/GifList'
@@ -13,11 +12,7 @@ const UserContainer = (props) => {
   return (
     <div>
       <NewSearchEntry userId={currentUser.id} />
-
-      <Row>
-        <GifList />
-      </Row>
-
+      <GifList />
     </div>
   )
 }

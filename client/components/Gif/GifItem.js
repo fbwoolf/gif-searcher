@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Column } from '../Grid/Grid'
-import GifStyle from './GifStyle'
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -13,15 +11,9 @@ const GifItem = (props) => {
   }
 
   return (
-    <Column xs='12' md='6' lg='3'>
-      <div className='col-space'>
-        <GifStyle>
-          <div className='image-container'>
-            <img src={gif.images.fixed_height_downsampled.url} className='gif-image' />
-          </div>
-        </GifStyle>
-      </div>
-    </Column>
+    <div className='gif-item'>
+      <img src={gif.images.fixed_height_downsampled.url} />
+    </div>
   )
 }
 
