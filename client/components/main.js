@@ -10,6 +10,9 @@ const Main = (props) => {
   return (
     <div id='main'>
       <NavbarContainer />
+      {
+      	isLoggedIn &&
+      }
       { children }
     </div>
   )
@@ -17,7 +20,11 @@ const Main = (props) => {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = null
+const mapState = (state) => {
+  return {
+    isLoggedIn: !!state.currentUser.id
+  }
+}
 const mapDispatch = null
 
 // The `withRouter` wrapper makes sure that updates are not blocked

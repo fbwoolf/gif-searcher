@@ -5,13 +5,11 @@ import styled from 'styled-components'
 const AuthStyle = styled.section`
   {
     position: relative;
-    left: 300px;
     background: ${props => props.theme.lightgrey};
     color: ${props => props.theme.white};
     width: 500px;
     height: 500px;
-    margin-top: 120px;
-    margin-left: 60px;
+    margin: 120px auto;
     z-index: 2;
     text-align: center;
 
@@ -42,7 +40,7 @@ const AuthStyle = styled.section`
       background: ${props => props.theme.lightgrey};
       border-bottom: 2px solid ${props => props.theme.white};
 
-      &:hover, &:focus {
+      &:focus {
         outline: none;
         background: ${props => props.theme.darkgrey};
       }

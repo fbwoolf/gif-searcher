@@ -12,7 +12,7 @@ const SearchItem = (props) => {
   return (
     <div>
       <li>
-        <NavLink activeClassName='active' to={'/home'} onClick={handleClick}>
+        <NavLink activeClassName='active' to={`/searches/${search.id}`} onClick={handleClick}>
           { search.word }
         </NavLink>
         <RemoveSearchButton onClick={handleRemove}>

@@ -6,4 +6,5 @@
 export {default as Main} from './Main'
 export {default as UserContainer} from './User/UserContainer'
 export {default as NewSearchEntry} from './Search/NewSearchEntry'
+export {default as GifList} from './Gif/GifList'
 export {Login, Signup} from './Auth/AuthContainer'
