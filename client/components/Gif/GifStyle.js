@@ -6,7 +6,6 @@ const GifStyle = styled.section`
     margin-top: 120px;
     margin-left: 300px;
     clear: both;
-    overflow: auto;
     min-height: 600px;  
     background: ${props => props.theme.white};
     color: ${props => props.theme.darkgrey};

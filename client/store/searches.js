@@ -1,17 +1,18 @@
 import axios from 'axios'
 import socket from '../socket'
+import history from '../history'
 
 /* -----------------    ACTION TYPES ------------------ */
 
 const INITIALIZE = 'INITIALIZE_SEARCHES'
-const CREATE = 'CREATE_SEARCH'
+const GET = 'GET_SEARCH'
 const REMOVE = 'REMOVE_SEARCH'
 const UPDATE = 'UPDATE_SEARCH'
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 const init = searches => ({ type: INITIALIZE, searches })
-export const createSearch = search => ({ type: CREATE, search })
+export const getSearch = search => ({ type: GET, search })
 const remove = id => ({ type: REMOVE, id })
 const update = search => ({ type: UPDATE, search })
 
@@ -22,8 +23,8 @@ export default function reducer (searches = [], action) {
     case INITIALIZE:
       return action.searches
 
-    case CREATE:
-      return [...searches, action.search]
+    case GET:
+      return [action.search, ...searches]
 
     case REMOVE:
       return searches.filter(search => search.id !== action.id)
@@ -61,8 +62,9 @@ export const addSearch = (search) => dispatch => {
   axios.post('/api/searches', search)
     .then(res => res.data)
     .then(newSearch => {
-      dispatch(createSearch(newSearch))
+      dispatch(getSearch(newSearch))
       socket.emit('new-search', newSearch)
+      history.push(`/searches/${newSearch.id}`)
     })
     .catch(err => console.error(`Creating search: ${search} unsuccesful`, err))
 }
