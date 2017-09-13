@@ -40,9 +40,9 @@ const strategy = new GoogleStrategy(googleConfig, (token, refreshToken, profile,
 
 passport.use(strategy)
 
-router.get('/google', passport.authenticate('google', {scope: 'email'}))
+router.get('/', passport.authenticate('google', {scope: 'email'}))
 
-router.get('/google/callback', passport.authenticate('google', {
+router.get('/callback', passport.authenticate('google', {
   successRedirect: '/home',
   failureRedirect: '/login'
 }))
