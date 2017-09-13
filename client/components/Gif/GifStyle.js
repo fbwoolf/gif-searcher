@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const GifStyle = styled.section`
   {
-    margin-top: 120px;
+    margin-top: 140px;
     margin-left: 300px;
     clear: both;
     min-height: 600px;  
