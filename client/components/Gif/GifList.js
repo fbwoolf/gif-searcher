@@ -17,7 +17,7 @@ const GifList = (props) => {
   )
 }
 
-const mapState = ({ currentUser, gifs }) => ({ currentUser, gifs })
+const mapState = ({ gifs }) => ({ gifs })
 const mapDispatch = null
 
 export default connect(mapState, mapDispatch)(GifList)

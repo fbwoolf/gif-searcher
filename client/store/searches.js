@@ -24,7 +24,7 @@ export default function reducer (searches = [], action) {
       return action.searches
 
     case GET:
-      return [action.search, ...searches]
+      return [...searches, action.search]
 
     case REMOVE:
       return searches.filter(search => search.id !== action.id)
@@ -33,7 +33,6 @@ export default function reducer (searches = [], action) {
       return searches.map(search => (
         action.search.id === search.id ? action.search : search
     ))
-
     default:
       return searches
   }

@@ -5,9 +5,7 @@ import GifList from '../Gif/GifList'
 
 /* -----------------    COMPONENT     ------------------ */
 
-const UserContainer = (props) => {
-  const { currentUser } = props
-
+const UserContainer = () => {
   return (
     <div>
       <UserStyle>
@@ -19,7 +17,7 @@ const UserContainer = (props) => {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = ({ currentUser }) => ({ currentUser })
+const mapState = null
 const mapDispatch = null
 
 export default connect(mapState, mapDispatch)(UserContainer)
