@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://api.giphy.com/v1/gifs/'
+const API_URL = 'https://api.giphy.com/v1/gifs/'
 const API_KEY = '3ebac09823d3492d900e52374f19368b'
 
 /* -----------------    ACTION TYPES ------------------ */
